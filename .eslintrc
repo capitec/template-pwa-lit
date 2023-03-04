@@ -1,0 +1,54 @@
+{
+	"root": false,
+	"parser": "@typescript-eslint/parser",
+	"plugins": [
+		"@typescript-eslint",
+		"lit",
+		"import"
+	],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:lit/recommended",
+        "prettier"
+	],
+	"env": {
+		"browser": true,
+		"node": true
+	},
+	"rules": {
+		"eqeqeq": "error",
+		"no-multiple-empty-lines": [
+			"error",
+			{
+				"max": 1
+			}
+		],
+		"quotes": [
+			"error",
+			"single",
+			{
+				"allowTemplateLiterals": true,
+                "avoidEscape": true
+			}
+		],
+		"@typescript-eslint/no-inferrable-types": "off",
+		"import/order": [
+			"error",
+			{
+				"groups": [
+					"builtin",
+					"external",
+					"internal",
+					"parent",
+					"sibling",
+					"index"
+				],
+				"alphabetize": {
+					"order": "asc"
+				}
+			}
+		]
+	}
+}
