@@ -1,7 +1,6 @@
 import { css, CSSResultGroup, LitElement } from 'lit';
 
 export class ViewBase extends LitElement {
-
     static override styles: CSSResultGroup = css`
         :host {
             display: flex;

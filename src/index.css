@@ -19,6 +19,7 @@ html {
 	--global-font-family: 'Hind Vadodara', sans-serif;
 	--global-font-color: #000000;
 	--global-background-color: #FFFFFF;
+	--global-background-hover-color: #E6E6E6;
 
 	font-family: var(--global-font-family);
         
@@ -53,6 +54,7 @@ html {
 :root[dark] {
 	--global-font-color: #FFFFFF;
 	--global-background-color: #24292e;
+	--global-background-hover-color: #3E4348;
 
 	--omni-theme-primary-color:  #b4b4b4;
 	--omni-theme-primary-hover-color: #f7f7f71a ;

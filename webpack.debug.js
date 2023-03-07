@@ -1,16 +1,15 @@
-import common from './webpack.common.js';
 import { merge } from 'webpack-merge';
+import common from './webpack.common.js';
 
 export default merge(common, {
 	mode: 'development',
 	devtool: 'inline-source-map',
 	devServer: {
-		port: 5190,
 		compress: true,
 		historyApiFallback: true,
 		hot: false,
 		devMiddleware: {
-			writeToDisk: true
+			writeToDisk: false
 		}
 	},
 	performance: {

@@ -5,7 +5,6 @@ import '@capitec/omni-components/label';
 
 @customElement('view-one')
 export class ViewOne extends ViewBase {
-
     override render() {
         return html`<omni-label label="View One"></omni-label>`;
     }

@@ -9,11 +9,11 @@ import '@capitec/omni-components/switch';
 @customElement('app-shell')
 export class AppShell extends LitElement {
     private _router: Router;
-	private darkMediaQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : undefined; 
-	private _darkPreferenceChangeBound = this._darkPreferenceChange.bind(this);
-	
-	private darkMode: boolean = this.darkMediaQuery?.matches ?? false;
-	
+    private darkMediaQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : undefined;
+    private _darkPreferenceChangeBound = this._darkPreferenceChange.bind(this);
+
+    private darkMode: boolean = this.darkMediaQuery?.matches ?? false;
+
     constructor() {
         super();
         this._router = Router.getInstance();
@@ -43,27 +43,27 @@ export class AppShell extends LitElement {
             animation: 'slide',
             load: () => import('./modules/module-b/ViewThree')
         });
-		
-		if (this.darkMode) {
-			document.documentElement.setAttribute('dark', '');
-		}
+
+        if (this.darkMode) {
+            document.documentElement.setAttribute('dark', '');
+        }
     }
 
-	override connectedCallback(): void {
-		super.connectedCallback();
-		
-		if (this.darkMediaQuery) {
-			this.darkMediaQuery.addEventListener('change',this._darkPreferenceChangeBound);
-		}
-	}
+    override connectedCallback(): void {
+        super.connectedCallback();
 
-	override disconnectedCallback(): void {
-		super.disconnectedCallback();
-		
-		if (this.darkMediaQuery) {
-			this.darkMediaQuery.removeEventListener('change',this._darkPreferenceChangeBound);
-		}
-	}
+        if (this.darkMediaQuery) {
+            this.darkMediaQuery.addEventListener('change', this._darkPreferenceChangeBound);
+        }
+    }
+
+    override disconnectedCallback(): void {
+        super.disconnectedCallback();
+
+        if (this.darkMediaQuery) {
+            this.darkMediaQuery.removeEventListener('change', this._darkPreferenceChangeBound);
+        }
+    }
 
     _navigate(e: MouseEvent, path: string) {
         e.preventDefault();
@@ -71,22 +71,22 @@ export class AppShell extends LitElement {
         this._router.push(path);
     }
 
-	_darkPreferenceChange(m: MediaQueryListEvent) {
-		if (!this.darkMode && m.matches) {
-			this._toggleDarkMode();
-		} else if (this.darkMode && !m.matches) {
-			this._toggleDarkMode();
-		}
-	}
+    _darkPreferenceChange(m: MediaQueryListEvent) {
+        if (!this.darkMode && m.matches) {
+            this._toggleDarkMode();
+        } else if (this.darkMode && !m.matches) {
+            this._toggleDarkMode();
+        }
+    }
 
-	_toggleDarkMode() {
-		this.darkMode = !this.darkMode;
-		if (this.darkMode) {
-			document.documentElement.setAttribute('dark', '');
-		} else {
-			document.documentElement.removeAttribute('dark');
-		}
-	}
+    _toggleDarkMode() {
+        this.darkMode = !this.darkMode;
+        if (this.darkMode) {
+            document.documentElement.setAttribute('dark', '');
+        } else {
+            document.documentElement.removeAttribute('dark');
+        }
+    }
 
     protected override firstUpdated() {
         // Load the route matching the current browser path.
@@ -114,9 +114,14 @@ export class AppShell extends LitElement {
 
 			padding: 40px 20px;
 
-			background-color: var(--global-background-color);
+			background: var(--global-background-color);
 
 			transition: all .5s linear;
+			cursor: pointer;
+		}
+
+		header:hover {
+			background: var(--global-background-hover-color);
 		}
 
 		header > img {
@@ -160,7 +165,7 @@ export class AppShell extends LitElement {
 		.navbar {			
 			display: flex;
 			justify-content: space-between;
-			background-color: #209dee;
+			background: #209dee;
 			align-items: center;
 		}
 
@@ -211,7 +216,7 @@ export class AppShell extends LitElement {
 
 		nav > omni-hyperlink:hover {
 			--omni-hyperlink-text-decorator-hover: none;
-			background-color: #1b86cb;
+			background: #1b86cb;
 		}
 
 		@media only screen and (max-width: 1000px) {
@@ -234,8 +239,8 @@ export class AppShell extends LitElement {
 
     override render() {
         return html`
-			<header>
-				<img src="assets/logo.png">
+			<header @click="${(e: MouseEvent) => this._navigate(e, '/')}">
+				<img src="assets/logo.png" alt="Omni Logo">
 				<omni-label>Omni Starter Lit</omni-label>
 			</header>
 			<div class="navbar">

@@ -1,11 +1,17 @@
+import path from 'path';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TerserWebpackPlugin from 'terser-webpack-plugin';
 
-import path from 'path';
+/**
+ * @typedef {import('webpack/types').Configuration} Configuration
+ */
 
+/**
+ * @type {Configuration}
+ */
 export default {
     entry: {
         app: { import: path.resolve(process.cwd(), './src/index.ts') },
@@ -20,6 +26,7 @@ export default {
         new CopyWebpackPlugin({
             patterns: [
                 { from: './src/index.css', to: 'index.css' },
+                { from: './src/manifest.json', to: 'manifest.json' },
                 {
                     from: './src/assets',
                     to: 'assets',
@@ -56,7 +63,6 @@ export default {
                             presets: ['@babel/preset-env'],
                             plugins: [
                                 ['@babel/transform-runtime'],
-
                                 ['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }],
                                 ['@babel/plugin-proposal-class-properties'],
                                 ['@babel/plugin-proposal-private-methods']
@@ -68,14 +74,10 @@ export default {
                     }
                 ]
             }, {
-                test: /\.svg$/, type: "asset"
+                test: /\.svg$/, type: 'asset'
             }
         ]
     },
-    // performance: {
-    //     maxAssetSize: 300 * 1024, // 300 KB
-    //     maxEntrypointSize: 3 * 1024 * 1024 // 3 MB
-    // },
     optimization: {
         usedExports: true,
         minimizer: [
