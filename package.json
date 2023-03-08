@@ -4,10 +4,10 @@
     "type": "module",
     "description": "<description>",
     "scripts": {
-        "serve": "npx webpack serve --config ./webpack.debug.js",
+        "serve": "npx webpack serve --config ./webpack.debug.js --port 8082",
         "build": "npx webpack build --config ./webpack.release.js",
         "preview": "npx http-server dist -p 0",
-        "test": "",
+        "test": "npx playwright test",
         "format": "prettier --config .prettierrc \"**/*.ts\" --write",
         "lint": "eslint . --ext .ts --fix"
     },
@@ -33,6 +33,7 @@
         "@babel/plugin-proposal-private-methods": "^7.18.6",
         "@babel/plugin-transform-runtime": "^7.21.0",
         "@babel/preset-env": "^7.20.2",
+        "@playwright/test": "^1.31.2",
         "@typescript-eslint/eslint-plugin": "^5.54.0",
         "babel-loader": "^9.1.2",
         "clean-webpack-plugin": "^4.0.0",

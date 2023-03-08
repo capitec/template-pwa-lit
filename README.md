@@ -1,6 +1,14 @@
 # omni-starter-lit
 
-## TODO
-- Fix SVG import.
-- README content.
-- Scripts: Test
+Overview
+
+## Dependencies
+
+TODO
+
+## Setup Steps
+
+TODO
+## Scripts
+
+TODO

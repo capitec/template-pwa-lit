@@ -73,8 +73,11 @@ export default {
                         loader: 'ts-loader'
                     }
                 ]
-            }, {
-                test: /\.svg$/, type: 'asset'
+            },
+            {
+                // Refer to https://webpack.js.org/guides/asset-modules/ for Asset Modules.
+                test: /\.svg$/,
+                type: 'asset/source'
             }
         ]
     },

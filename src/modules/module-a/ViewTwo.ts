@@ -69,6 +69,7 @@ export class ViewTwo extends ViewBase {
     override render() {
         return html`
             <div class="preview" style="color: ${this.color}">
+            
                 <!-- Omni Icon with slotted svg content -->
                 <omni-icon size="${this.size}">
                     ${unsafeSVG(factories)}
@@ -80,13 +81,15 @@ export class ViewTwo extends ViewBase {
             <div class="controls">
                 <omni-color-field label="Colour" 
                                   value="${this.color}" 
-                                  @input="${(e: Event) => this._colourChange(e)}"></omni-color-field>
+                                  @input="${(e: Event) => this._colourChange(e)}">
+                </omni-color-field>
                 <omni-select label="Size" 
-                              value="${this.size}" 
-                              .items="${iconSizes}" 
-                              @change="${(e: Event) => this._sizeChange(e)}"></omni-select>
+                             value="${this.size}" 
+                             .items="${iconSizes}" 
+                             @change="${(e: Event) => this._sizeChange(e)}"
+                ></omni-select>
             </div>            
-            `;
+        `;
     }
 
     private _colourChange(e: Event) {
