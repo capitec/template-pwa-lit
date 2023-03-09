@@ -1,10 +1,10 @@
 {
-    "name": "<name>",
+    "name": "{name}",
     "version": "0.0.1",
     "type": "module",
-    "description": "<description>",
+    "description": "{description}",
     "scripts": {
-        "serve": "npx webpack serve --config ./webpack.debug.js --port 8082",
+        "serve": "npx webpack serve --config ./webpack.debug.js",
         "build": "npx webpack build --config ./webpack.release.js",
         "preview": "npx http-server dist -p 0",
         "test": "npx playwright test",
@@ -13,7 +13,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/<path>.git"
+        "url": "git+https://github.com/{path}.git"
     },
     "keywords": [
         "omni",
@@ -24,9 +24,9 @@
     "author": "capitec",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/<path>/issues"
+        "url": "https://github.com/{path}/issues"
     },
-    "homepage": "https://github.com/<path>#readme",
+    "homepage": "https://github.com/{path}#readme",
     "devDependencies": {
         "@babel/plugin-proposal-class-properties": "^7.18.6",
         "@babel/plugin-proposal-decorators": "^7.21.0",
