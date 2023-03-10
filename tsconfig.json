@@ -1,25 +1,38 @@
+// Reference: https://www.typescriptlang.org/tsconfig
 {
     "compilerOptions": {
-        "module": "ESNext",
-        "target": "ESNext",
-        "lib": ["ESNext", "DOM", "DOM.Iterable"], 
-        "moduleResolution": "node",
 
+        // Modules
+        "module": "ESNext",
+        "moduleResolution": "node",
         "rootDir": "./src",
 
+        // Language & Environment
+        "target": "ESNext",
+        "lib": [
+            "ESNext",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "useDefineForClassFields": false,
+        "experimentalDecorators": true,
+
+        // Emit
         "declaration": false,
         "sourceMap": true,
         "inlineSources": true,
         "outDir": "./dist/",
 
+        // Interop Constraints
         "allowSyntheticDefaultImports": true,
         "forceConsistentCasingInFileNames": true,
-        "useDefineForClassFields": false,
+
+        // Completeness
         "skipLibCheck": false,
 
+        // Type Checking
         "strict": true,
         "strictNullChecks": true,
-        "experimentalDecorators": true,
         "noUnusedLocals": false,
         "noUnusedParameters": false,
         "noImplicitReturns": true,
@@ -28,6 +41,7 @@
         "noImplicitThis": true,
         "noImplicitOverride": true,
 
+        // Editor Support
         "plugins": [
             {
                 "name": "ts-lit-plugin",
