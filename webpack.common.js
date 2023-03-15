@@ -4,6 +4,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TerserWebpackPlugin from 'terser-webpack-plugin';
+import packageJson from './package.json' assert { type: 'json' };
 
 /**
  * @typedef {import('webpack/types').Configuration} Configuration
@@ -36,7 +37,7 @@ export default {
             ]
         }),
         new HtmlWebpackPlugin({
-            title: 'Omni Starter Lit',
+            title: packageJson.name,
             filename: 'index.html',
             template: './src/index.html'
         })
