@@ -3,9 +3,9 @@
 Progressive Web App (PWA) starter template for [Lit](https://lit.dev)-based Single-page application (SPA) development, leveraging various [Omni](https://github.com/capitec?q=omni-) libraries.
 
 ### Headline Features: 😎
-- TypeScript support provided.
-- Integrated bundling, debugging, testing, linting & formatting support provided.
-- Basic SPA boilerplate with routing provided.
+- TypeScript support.
+- Integrated bundling, debugging, testing, linting & formatting support.
+- Basic SPA boilerplate with routing.
 
 ### Key Dependencies: 🛠️
 - Tooling
