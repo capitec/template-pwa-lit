@@ -24,7 +24,7 @@ export class AppShell extends LitElement {
             title: 'One',
             path: '/one',
             animation: 'fade',
-            load: () => import('./modules/module-a/ViewOne'),
+            load: () => import(/* webpackChunkName: "module_a" */ './modules/module-a/ViewOne'),
             isDefault: true
         });
 
@@ -33,7 +33,7 @@ export class AppShell extends LitElement {
             title: 'Two',
             path: '/two',
             animation: 'pop',
-            load: () => import('./modules/module-a/ViewTwo')
+            load: () => import(/* webpackChunkName: "module_a" */ './modules/module-a/ViewTwo')
         });
 
         this._router.addRoute({
@@ -41,7 +41,7 @@ export class AppShell extends LitElement {
             title: 'Three',
             path: '/three',
             animation: 'slide',
-            load: () => import('./modules/module-b/ViewThree')
+            load: () => import(/* webpackChunkName: "module_b" */ './modules/module-b/ViewThree')
         });
 
         if (this.darkMode) {

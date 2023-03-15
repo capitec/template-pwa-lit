@@ -17,6 +17,6 @@ export default merge(common, {
 	plugins: [
 		// Basic precache and runtime caching boilerplate.
 		// Refer to https://developer.chrome.com/docs/workbox/modules/workbox-webpack-plugin/ for more info and other options.
-		new GenerateSW({ })
+		new GenerateSW()
 	]
 });

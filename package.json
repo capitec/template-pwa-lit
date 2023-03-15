@@ -4,9 +4,9 @@
     "type": "module",
     "description": "{description}",
     "scripts": {
-        "serve": "npx webpack serve --config ./webpack.debug.js",
-        "build": "npx webpack build --config ./webpack.release.js",
-        "preview": "npx http-server dist -p 0",
+        "serve": "npx webpack serve --config ./webpack.debug.js --port 8082",
+        "build": "npx webpack build --config ./webpack.release.js --port 8082",
+        "preview": "npx http-server dist -p 8083 -o --proxy http://0.0.0.0:8083?",
         "test": "npx playwright test",
         "format": "prettier --config .prettierrc \"**/*.ts\" --write",
         "lint": "eslint . --ext .ts --fix"

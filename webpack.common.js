@@ -17,7 +17,6 @@ export default {
         app: { import: path.resolve(process.cwd(), './src/index.ts') },
     },
     output: {
-        filename: '[name].[chunkhash:8].js',
         path: path.resolve(process.cwd(), 'dist'),
         clean: true
     },

@@ -9,7 +9,7 @@ export default merge(common, {
 		historyApiFallback: true,
 		hot: false,
 		devMiddleware: {
-			writeToDisk: false
+			writeToDisk: true
 		}
 	},
 	performance: {
