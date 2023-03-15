@@ -9,10 +9,9 @@ import '@capitec/omni-components/switch';
 @customElement('app-shell')
 export class AppShell extends LitElement {
     private _router: Router;
-    private darkMediaQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : undefined;
+    private _darkMediaQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : undefined;
     private _darkPreferenceChangeBound = this._darkPreferenceChange.bind(this);
-
-    private darkMode: boolean = this.darkMediaQuery?.matches ?? false;
+    private _darkMode: boolean = this._darkMediaQuery?.matches ?? false;
 
     constructor() {
         super();
@@ -44,7 +43,7 @@ export class AppShell extends LitElement {
             load: () => import(/* webpackChunkName: "module_b" */ './modules/module-b/ViewThree')
         });
 
-        if (this.darkMode) {
+        if (this._darkMode) {
             document.documentElement.setAttribute('dark', '');
         }
     }
@@ -52,16 +51,16 @@ export class AppShell extends LitElement {
     override connectedCallback(): void {
         super.connectedCallback();
 
-        if (this.darkMediaQuery) {
-            this.darkMediaQuery.addEventListener('change', this._darkPreferenceChangeBound);
+        if (this._darkMediaQuery) {
+            this._darkMediaQuery.addEventListener('change', this._darkPreferenceChangeBound);
         }
     }
 
     override disconnectedCallback(): void {
         super.disconnectedCallback();
 
-        if (this.darkMediaQuery) {
-            this.darkMediaQuery.removeEventListener('change', this._darkPreferenceChangeBound);
+        if (this._darkMediaQuery) {
+            this._darkMediaQuery.removeEventListener('change', this._darkPreferenceChangeBound);
         }
     }
 
@@ -72,16 +71,16 @@ export class AppShell extends LitElement {
     }
 
     _darkPreferenceChange(m: MediaQueryListEvent) {
-        if (!this.darkMode && m.matches) {
+        if (!this._darkMode && m.matches) {
             this._toggleDarkMode();
-        } else if (this.darkMode && !m.matches) {
+        } else if (this._darkMode && !m.matches) {
             this._toggleDarkMode();
         }
     }
 
     _toggleDarkMode() {
-        this.darkMode = !this.darkMode;
-        if (this.darkMode) {
+        this._darkMode = !this._darkMode;
+        if (this._darkMode) {
             document.documentElement.setAttribute('dark', '');
         } else {
             document.documentElement.removeAttribute('dark');
@@ -249,7 +248,7 @@ export class AppShell extends LitElement {
 					<omni-hyperlink href="/two" 	@click="${(e: MouseEvent) => this._navigate(e, '/two')}" label="Two"></omni-hyperlink>
 					<omni-hyperlink href="/three" 	@click="${(e: MouseEvent) => this._navigate(e, '/three')}" label="Three"></omni-hyperlink>
 				</nav>
-				<omni-switch label="Dark Mode" ?checked="${this.darkMode}" @value-change="${() => this._toggleDarkMode()}"></omni-switch>
+				<omni-switch label="Dark Mode" ?checked="${this._darkMode}" @value-change="${() => this._toggleDarkMode()}"></omni-switch>
 			</div>
 			<omni-router></omni-router>
 		`;
