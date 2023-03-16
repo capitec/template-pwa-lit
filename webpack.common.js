@@ -75,7 +75,7 @@ export default {
                 ]
             },
             {
-                // Refer to https://webpack.js.org/guides/asset-modules/ for Asset Modules.
+                // Refer to https://webpack.js.org/guides/asset-modules/ for more info on Asset Modules.
                 test: /\.svg$/,
                 type: 'asset/source'
             }

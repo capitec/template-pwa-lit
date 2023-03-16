@@ -83,7 +83,7 @@ export class ViewThree extends ViewBase {
                     )} @input="${() => this._pinFieldInput()}"></omni-pin-field>
                     <omni-radio-group class="radio-group" label="Select your account type" horizontal>
                         <omni-radio label="Developer"></omni-radio>
-                        <omni-radio label="Admin" disabled></omni-radio>
+                        <omni-radio label="Admin"></omni-radio>
                         <omni-radio label="Casual User" checked></omni-radio>
                     </omni-radio-group>
                     <omni-check id="form-check" label="I agree all fields above are populated" @click="${() => this._checkClicked()}"></omni-check>

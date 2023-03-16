@@ -70,7 +70,7 @@ export class ViewTwo extends ViewBase {
         return html`
             <div class="preview" style="color: ${this.color}">
             
-                <!-- Omni Icon with slotted svg content -->
+                <!-- Omni Icon with slotted SVG content -->
                 <omni-icon size="${this.size}">
                     ${unsafeSVG(factories)}
                 </omni-icon>
