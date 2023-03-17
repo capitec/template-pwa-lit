@@ -2,22 +2,23 @@
 
 Progressive Web App (PWA) starter template for [Lit](https://lit.dev)-based Single-page application (SPA) development, leveraging various [Omni](https://github.com/capitec?q=omni-) libraries.
 
-### Headline Features: 😎
+### Headline Features: 🌟
 - TypeScript support.
+- Dark-mode support.
 - Integrated bundling, debugging, testing, linting & formatting support.
-- Basic SPA boilerplate with routing.
+- Basic SPA boilerplate with routing & PWA setup.
 
 ### Key Dependencies: 🛠️
 - Tooling
-    - [VS Code](https://code.visualstudio.com) for application debugging & development.
+    - [VS Code](https://code.visualstudio.com) for application development.
     - [webpack](https://webpack.js.org/) for module bundling.
     - [Playwright](https://playwright.dev/) for end-to-end headless browser testing.
     - [ESLint](https://eslint.org/) for static code analysis.
     - [Prettier](https://prettier.io/) for opinionated code formatting.
 - Runtime
-    - [Omni Components](https://github.com/capitec/omni-components) for UI elements.
+    - [Omni Components](https://github.com/capitec/omni-components) for UI components.
     - [Omni Router](https://github.com/capitec/omni-router) for client-side routing.
-    - [Lit](https://lit.dev) for application development.
+    - [Lit](https://lit.dev) for SPA development.
 
 # Usage
 
@@ -44,9 +45,9 @@ code .
 # Scripts
 The following NPM scripts provided within `package.json` should be noted:
 
-- `serve` - Launches Webpack's dev server (Automated via `F5` debugging in VS Code).
-- `build` - Bundles code for production, including all content within `src` directory.
-- `preview` - Launches a simple web server, serving the `dist` directory, remember to `build` first!
+- `serve` - Launches Webpack's dev server (Automated via `F5` debugging in VS Code 😎).
+- `build` - Bundles code and copies artifacts for production, including all content within the `src` directory.
+- `preview` - Launches a simple web server, serving the `dist` directory (Remember to `build` first! 🎗️)
 - `test` - Launches the Playwright test runner & executes all tests within `tests` directory.
 - `format` - Runs the Prettier formatter on all `.ts` files, applying format updates where necessary.
 - `lint`- Runs the ESLint analyzer on all `.ts` files, applying code updates where necessary.
