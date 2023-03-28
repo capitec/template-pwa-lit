@@ -12,10 +12,10 @@ import '@capitec/omni-components/select';
 
 @customElement('view-two')
 export class ViewTwo extends ViewBase {
-    @state() private color: string = '#209dee';
-    @state() private size: 'default' | 'extra-small' | 'small' | 'medium' | 'large' = 'large';
+    @state() private _color: string = '#209dee';
+    @state() private _size: 'default' | 'extra-small' | 'small' | 'medium' | 'large' = 'large';
 
-    private materialLink?: HTMLLinkElement;
+    private _materialLink?: HTMLLinkElement;
 
     static override styles: CSSResultGroup = [
         ViewBase.styles,
@@ -50,41 +50,41 @@ export class ViewTwo extends ViewBase {
         super.connectedCallback();
 
         // Adding Google Material Icons to document
-        this.materialLink = document.createElement('link');
-        this.materialLink.rel = 'stylesheet preload';
-        this.materialLink.href = 'https://fonts.googleapis.com/icon?family=Material+Icons';
-        this.materialLink.as = 'style';
-        document.head.appendChild(this.materialLink);
+        this._materialLink = document.createElement('link');
+        this._materialLink.rel = 'stylesheet preload';
+        this._materialLink.href = 'https://fonts.googleapis.com/icon?family=Material+Icons';
+        this._materialLink.as = 'style';
+        document.head.appendChild(this._materialLink);
     }
 
     override disconnectedCallback(): void {
         super.disconnectedCallback();
 
         // Removing Google Material Icons from document
-        if (this.materialLink) {
-            this.materialLink.remove();
+        if (this._materialLink) {
+            this._materialLink.remove();
         }
     }
 
     override render() {
         return html`
-            <div class="preview" style="color: ${this.color}">
+            <div class="preview" style="color: ${this._color}">
             
                 <!-- Omni Icon with slotted SVG content -->
-                <omni-icon size="${this.size}">
+                <omni-icon size="${this._size}">
                     ${unsafeSVG(factories)}
                 </omni-icon>
 
                 <!-- Omni Icon with Google Material Icon -->
-                <omni-icon size="${this.size}" icon="@material/dataset"></omni-icon>
+                <omni-icon size="${this._size}" icon="@material/dataset"></omni-icon>
             </div>
             <div class="controls">
                 <omni-color-field label="Colour" 
-                                  value="${this.color}" 
+                                  value="${this._color}" 
                                   @input="${(e: Event) => this._colourChange(e)}">
                 </omni-color-field>
                 <omni-select label="Size" 
-                             value="${this.size}" 
+                             value="${this._size}" 
                              .items="${iconSizes}" 
                              @change="${(e: Event) => this._sizeChange(e)}"
                 ></omni-select>
@@ -93,11 +93,11 @@ export class ViewTwo extends ViewBase {
     }
 
     private _colourChange(e: Event) {
-        this.color = (e.target as ColorField)?.value?.toString() ?? '#209dee';
+        this._color = (e.target as ColorField)?.value?.toString() ?? '#209dee';
     }
 
     private _sizeChange(e: Event) {
-        this.size = ((e.target as Select)?.value?.toString() as IconSize) ?? 'default';
+        this._size = ((e.target as Select)?.value?.toString() as IconSize) ?? 'default';
     }
 }
 

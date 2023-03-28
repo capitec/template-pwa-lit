@@ -16,18 +16,13 @@ import '@capitec/omni-components/text-field';
 
 @customElement('view-three')
 export class ViewThree extends ViewBase {
-    @state() private valid: boolean = false;
-    @state() private emailValue?: string = '';
-    @state() private pinValue?: number;
+    @state() private _formValid: boolean = false;
+    @state() private _emailValue?: string = '';
+    @state() private _pinValue?: number;
 
     static override styles: CSSResultGroup = [
         ViewBase.styles,
         css`
-
-            :host { 
-                
-            }
-
             .preview {
                 min-height: 360px;
                 display: flex;
@@ -61,59 +56,53 @@ export class ViewThree extends ViewBase {
                 margin-top: 15px;
              }
 
-
         `
     ];
 
-    /* 
-       - Introduce Form element validation.
-       - Add Modal or Toast component 
-       - Add validation for Email field format.
-    */
     override render() {
         return html`
             <div class="preview">
                 <div class="form-container">
                     <omni-label label="Input Examples" type="title"></omni-label>
-                    <omni-email-field id="form-email-field" label="Email field" hint="Enter a valid email address" .value="${live(
-                        this.emailValue as string
-                    )}" @input="${() => this._emailFieldInput()}"></omni-email-field>
-                    <omni-pin-field id="form-pin-field" label="Pin field" hint="Enter a pin consisting of numeric values" .value=${live(
-                        this.pinValue as number
-                    )} @input="${() => this._pinFieldInput()}"></omni-pin-field>
+                    <omni-email-field 
+                        id="form-email-field" 
+                        label="Email field" 
+                        hint="Enter a valid email address" 
+                        .value="${live(this._emailValue as string )}" 
+                        @input="${(e: InputEvent) => this._emailFieldInput(e)}">
+                    </omni-email-field>
+                    <omni-pin-field 
+                        id="form-pin-field" 
+                        label="Pin field" 
+                        hint="Enter a pin consisting of numeric values" 
+                        .value=${live(this._pinValue as number)} 
+                        @input="${(e: InputEvent) => this._pinFieldInput(e)}">
+                    </omni-pin-field>
                     <omni-radio-group class="radio-group" label="Select your account type" horizontal>
                         <omni-radio label="Developer"></omni-radio>
                         <omni-radio label="Admin"></omni-radio>
                         <omni-radio label="Casual User" checked></omni-radio>
                     </omni-radio-group>
-                    <omni-check id="form-check" label="I agree all fields above are populated" @click="${() => this._checkClicked()}"></omni-check>
+                    <omni-check id="form-check" label="I agree all fields above are populated" @click="${(e: Event) => this._checkClicked(e)}"></omni-check>
                     <omni-button label="Submit" type="primary" @click="${() => this._formSubmitted()}"></omni-button>
-                    <!-- Consider adding this in future
-                        <<p class="terms"> Click this <omni-hyperlink label="link" inline></omni-hyperlink> to view our terms and conditions </p>>-->
                 </div>
             </div>    
         `;
     }
 
-    private _emailFieldInput() {
-        const emailField = this.shadowRoot?.getElementById('form-email-field') as EmailField;
-        if (emailField.error) {
-            emailField.error = '';
-        }
+    private _emailFieldInput(e: InputEvent) {
+        const emailField = e.currentTarget as EmailField;
+        emailField.error = '';
     }
 
-    private _pinFieldInput() {
-        const pinField = this.shadowRoot?.getElementById('form-pin-field') as PinField;
-        if (pinField.error) {
-            pinField.error = '';
-        }
+    private _pinFieldInput(e: InputEvent) {
+        const pinField = e.currentTarget as PinField;
+        pinField.error = '';
     }
 
-    private _checkClicked() {
-        const check = this.shadowRoot?.getElementById('form-check') as Check;
-        if (check.error) {
-            check.error = '';
-        }
+    private _checkClicked(e: Event) {
+        const check = e.currentTarget as Check;
+        check.error = '';
     }
 
     private _formSubmitted() {
@@ -122,19 +111,19 @@ export class ViewThree extends ViewBase {
         const pinField = this.shadowRoot?.getElementById('form-pin-field') as PinField;
 
         if (check.checked && emailField.value && pinField.value) {
-            this.valid = true;
-            /* Introduce Modal component when added to Omni-components */
-            alert('Your form is valid the following profile is created');
+            this._formValid = true;
+            alert('Your form is valid');
         } else {
-            this.valid = false;
-            //Suggest that use regex to confirm if email address is valid
+            this._formValid = false;
+            
             if (!emailField.value) {
-                emailField.error = 'Please enter a email value';
+                emailField.error = 'Please enter an email value';
             }
-            // Suggest that atleast a 4 digit pin is entered.
+            
             if (!pinField.value) {
                 pinField.error = 'Please enter a pin value';
             }
+
             if (!check.checked) {
                 check.error = 'Please tick the checkbox if your fields have values';
             }
