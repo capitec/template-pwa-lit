@@ -84,7 +84,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'npx webpack serve --config ./webpack.debug.js --port 8081',
-    port: 8081,
+    command: 'npx webpack serve --config ./webpack.debug.js --port 8084',
+    port: 8084,
   }
 });
