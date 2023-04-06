@@ -41,13 +41,12 @@ npm i
 code .
 ```
 
-
 # Scripts
-The following NPM scripts provided within `package.json` should be noted:
+The following NPM scripts within `package.json` should be noted:
 
 - `serve` - Launches Webpack's dev server (Automated via `F5` debugging in VS Code 😎).
-- `build` - Bundles code and copies artifacts for production, including all content within the `src` directory.
-- `preview` - Launches a simple web server, serving the `dist` directory (Remember to `build` first! 🎗️)
+- `build` - Bundles code and copies artifacts for production from the `src` directory to the `dist` directory.
+- `preview` - Launches a simple web server, serving the `dist` directory (Remember to `build` first! 🎗️).
 - `test` - Launches the Playwright test runner & executes all tests within `tests` directory.
 - `format` - Runs the Prettier formatter on all `.ts` files, applying format updates where necessary.
 - `lint`- Runs the ESLint analyzer on all `.ts` files, applying code updates where necessary.
