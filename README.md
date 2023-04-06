@@ -22,7 +22,7 @@ Progressive Web App (PWA) starter template for [Lit](https://lit.dev)-based Sing
 
 # Usage
 
-1️⃣ &nbsp; Create a new [repository from this template](https://github.com/capitec/omni-starter-lit/generate) (or fork) and clone locally:
+1️⃣ &nbsp; Create a new [repository from this template](https://github.com/capitec/template-pwa-lit/generate) (or fork) and clone locally:
 
 ```bash
 git clone https://github.com/{your-repo-name}.git
