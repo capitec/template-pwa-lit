@@ -47,6 +47,43 @@ The following NPM scripts within `package.json` should be noted:
 - `serve` - Launches Webpack's dev server (Automated via `F5` debugging in VS Code 😎).
 - `build` - Bundles code and copies artifacts for production from the `src` directory to the `dist` directory.
 - `preview` - Launches a simple web server, serving the `dist` directory (Remember to `build` first! 🎗️).
-- `test` - Launches the Playwright test runner & executes all tests within `tests` directory.
+- `test` - Launches the [Playwright](#run-end-to-end-tests-with-playwright) test runner & executes all tests within `tests` directory.
 - `format` - Runs the Prettier formatter on all `.ts` files, applying format updates where necessary.
 - `lint`- Runs the ESLint analyzer on all `.ts` files, applying code updates where necessary.
+
+# Run End-to-End Tests with [Playwright](https://playwright.dev)
+
+```sh
+# Install browsers for the first run (Required)
+npx playwright install
+
+# When testing on CI, must build the project first
+npm run build
+
+# Runs the end-to-end tests
+npm run test
+
+# Runs the tests only on Chromium
+npm run test -- --project=chromium
+
+# Runs the tests of a specific file
+npm run test -- tests/example.spec.ts
+
+# Runs the tests in debug mode
+npm run test -- --debug
+```
+
+# Showcased Features
+|     Feature    |  Availability |
+|-------------------------------|-----|
+|    [Omni Components](https://github.com/capitec/omni-components)            |  ✅ |
+|    [Omni Router](https://github.com/capitec/omni-router)                |  ✅ |
+|    Component Intellisense     |  ✅ |
+|    VS Code Debugging          |  ✅ |
+|    Tests                      |  ✅ |
+|    Serve                      |  ✅ |
+|    Build                      |  ✅ |
+|    Build chunking             |  ✅ |
+|    Preview built output       |  ✅ |
+|    Formatting                 |  ✅ |
+|    Linting                    |  ✅ |
