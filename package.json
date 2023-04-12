@@ -19,7 +19,8 @@
         "omni",
         "template",
         "starter",
-        "lit"
+        "lit",
+        "pwa"
     ],
     "author": "your-name",
     "license": "MIT",
