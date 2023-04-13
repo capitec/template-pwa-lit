@@ -59,7 +59,7 @@ export class ViewThree extends ViewBase {
 
              .suffix-slot {
                margin-right: 10px;
-               color: var(--global-font-color);
+               color: var(--omni-theme-primary-color);
              }
 
         `
