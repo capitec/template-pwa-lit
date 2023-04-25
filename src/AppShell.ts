@@ -103,7 +103,7 @@ export class AppShell extends LitElement {
 			align-items: stretch;
 		}
 
-		/* Header */
+		/* HEADER */
 
 		header {
 			display: flex;
@@ -159,7 +159,7 @@ export class AppShell extends LitElement {
 			}
 		}
 
-		/* Nav Bar */
+		/* NAVBAR */
 
 		.navbar {			
 			display: flex;
@@ -229,14 +229,8 @@ export class AppShell extends LitElement {
 			}
 		}
 
-		@media only screen and (max-width: 1000px) {
-			.navbar > omni-switch {
-				display: none;
-			}
-		}
-
-		/* Content Area */
-
+		/* CONTENT AREA */
+		
 		omni-router {
 			flex: 1 1 auto;
 		}
