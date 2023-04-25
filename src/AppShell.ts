@@ -19,28 +19,28 @@ export class AppShell extends LitElement {
 
         // Register the app routes.
         this._router.addRoute({
-            name: 'view-one',
-            title: 'One',
-            path: '/one',
+            name: 'view-home',
+            title: 'Home',
+            path: '/',
             animation: 'fade',
-            load: () => import(/* webpackChunkName: "module_a" */ './modules/module-a/ViewOne'),
+            load: () => import(/* webpackChunkName: "module_a" */ './modules/module-a/ViewHome'),
             isDefault: true
         });
 
         this._router.addRoute({
-            name: 'view-two',
-            title: 'Two',
-            path: '/two',
+            name: 'view-components',
+            title: 'Components',
+            path: '/components',
             animation: 'pop',
-            load: () => import(/* webpackChunkName: "module_a" */ './modules/module-a/ViewTwo')
+            load: () => import(/* webpackChunkName: "module_a" */ './modules/module-a/ViewComponents')
         });
 
         this._router.addRoute({
-            name: 'view-three',
-            title: 'Three',
-            path: '/three',
+            name: 'view-form',
+            title: 'Form',
+            path: '/form',
             animation: 'slide',
-            load: () => import(/* webpackChunkName: "module_b" */ './modules/module-b/ViewThree')
+            load: () => import(/* webpackChunkName: "module_b" */ './modules/module-b/ViewForm')
         });
 
         if (this._darkMode) {
@@ -183,7 +183,7 @@ export class AppShell extends LitElement {
 			font-size: 16px;
 			font-weight: normal;
 
-			padding: 0px 20px;
+			padding: 0px 0px;
 
 			flex-shrink: 0;
 			flex-wrap: wrap;
@@ -229,6 +229,12 @@ export class AppShell extends LitElement {
 			}
 		}
 
+		@media only screen and (max-width: 1000px) {
+			.navbar > omni-switch {
+				display: none;
+			}
+		}
+
 		/* Content Area */
 
 		omni-router {
@@ -240,13 +246,13 @@ export class AppShell extends LitElement {
         return html`
 			<header @click="${(e: MouseEvent) => this._navigate(e, '/')}">
 				<img src="assets/logo.png" alt="Omni Logo">
-				<omni-label>Omni Starter Lit</omni-label>
+				<omni-label>Omni + Lit</omni-label>
 			</header>
 			<div class="navbar">
 				<nav>
-					<omni-hyperlink href="/one" 	@click="${(e: MouseEvent) => this._navigate(e, '/one')}">One</omni-hyperlink>
-					<omni-hyperlink href="/two" 	@click="${(e: MouseEvent) => this._navigate(e, '/two')}" label="Two"></omni-hyperlink>
-					<omni-hyperlink href="/three" 	@click="${(e: MouseEvent) => this._navigate(e, '/three')}" label="Three"></omni-hyperlink>
+					<omni-hyperlink href="/" @click="${(e: MouseEvent) => this._navigate(e, '/')}">Home</omni-hyperlink>
+					<omni-hyperlink href="/components" @click="${(e: MouseEvent) => this._navigate(e, '/components')}" label="Components"></omni-hyperlink>
+					<omni-hyperlink href="/form" @click="${(e: MouseEvent) => this._navigate(e, '/form')}" label="Form"></omni-hyperlink>
 				</nav>
 				<omni-switch label="Dark Mode" ?checked="${this._darkMode}" @value-change="${() => this._toggleDarkMode()}"></omni-switch>
 			</div>

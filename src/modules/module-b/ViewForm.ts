@@ -15,8 +15,8 @@ import '@capitec/omni-components/pin-field';
 import '@capitec/omni-components/radio';
 import '@capitec/omni-components/text-field';
 
-@customElement('view-three')
-export class ViewThree extends ViewBase {
+@customElement('view-form')
+export class ViewForm extends ViewBase {
     @state() private _formValid: boolean = false;
     @state() private _emailValue?: string = '';
     @state() private _pinValue?: number;
@@ -67,25 +67,42 @@ export class ViewThree extends ViewBase {
 
     override render() {
         return html`
+            <div class="info">
+                <div class="item">
+                    <omni-icon size="large">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100%" height="100%">
+                            <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/>
+                        </svg>
+                    </omni-icon>
+                    <div>
+                        <omni-label label="Info" type="title"></omni-label>
+                        <span>
+                            This example illustrates the use of various components to produce a basic form.
+                        </span>
+                    </div>
+                </div>
+            </div>
             <div class="preview">
                 <div class="form-container">
                     <omni-label label="Input Examples" type="title"></omni-label>
                     <omni-email-field 
                         id="form-email-field" 
-                        label="Email field" 
-                        hint="Enter a valid email address" 
+                        label="Email" 
+                        hint="Your email address" 
                         .value="${live(this._emailValue as string)}" 
-                        @input="${(e: InputEvent) => this._emailFieldInput(e)}">
+                        @input="${(e: InputEvent) => this._clearEmailFieldError(e)}">
                         <omni-icon size="medium" slot="suffix" class="suffix-slot">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100%" height="100%"><path d="M22 3.25a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H2a.75.75 0 0 1-.75-.75V4A.75.75 0 0 1 2 3.25Zm-.75 3.19-8.82 6.174a.75.75 0 0 1-.76.06l-.1-.06-8.82-6.173V19.25h18.5V6.44Zm-.202-1.69H2.951L12 11.084l9.048-6.334Z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100%" height="100%">
+                                <path d="M22 3.25a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H2a.75.75 0 0 1-.75-.75V4A.75.75 0 0 1 2 3.25Zm-.75 3.19-8.82 6.174a.75.75 0 0 1-.76.06l-.1-.06-8.82-6.173V19.25h18.5V6.44Zm-.202-1.69H2.951L12 11.084l9.048-6.334Z"/>
+                            </svg>
                         </omni-icon>
                     </omni-email-field>
                     <omni-pin-field 
                         id="form-pin-field" 
-                        label="Pin field" 
-                        hint="Enter a pin consisting of numeric values" 
+                        label="Pin" 
+                        hint="Your pin" 
                         .value=${live(this._pinValue as number)} 
-                        @input="${(e: InputEvent) => this._pinFieldInput(e)}">
+                        @input="${(e: InputEvent) => this._clearPinFieldError(e)}">
                     </omni-pin-field>
                     <omni-radio-group class="radio-group" label="Select your account type" horizontal>
                         <omni-radio label="Developer"></omni-radio>
@@ -93,29 +110,29 @@ export class ViewThree extends ViewBase {
                         <omni-radio label="Casual User" checked></omni-radio>
                     </omni-radio-group>
                     <omni-check id="form-check" label="I agree all fields above are populated" @click="${(e: Event) =>
-                        this._checkClicked(e)}"></omni-check>
-                    <omni-button label="Submit" type="primary" @click="${() => this._formSubmitted()}"></omni-button>
+                        this._clearTermsError(e)}"></omni-check>
+                    <omni-button label="Submit" type="primary" @click="${() => this._submitForm()}"></omni-button>
                 </div>
             </div>    
         `;
     }
 
-    private _emailFieldInput(e: InputEvent) {
+    private _clearEmailFieldError(e: InputEvent) {
         const emailField = e.currentTarget as EmailField;
         emailField.error = '';
     }
 
-    private _pinFieldInput(e: InputEvent) {
+    private _clearPinFieldError(e: InputEvent) {
         const pinField = e.currentTarget as PinField;
         pinField.error = '';
     }
 
-    private _checkClicked(e: Event) {
+    private _clearTermsError(e: Event) {
         const check = e.currentTarget as Check;
         check.error = '';
     }
 
-    private _formSubmitted() {
+    private _submitForm() {
         const check = this.shadowRoot?.getElementById('form-check') as Check;
         const emailField = this.shadowRoot?.getElementById('form-email-field') as EmailField;
         const pinField = this.shadowRoot?.getElementById('form-pin-field') as PinField;
@@ -135,7 +152,7 @@ export class ViewThree extends ViewBase {
             }
 
             if (!check.checked) {
-                check.error = 'Please tick the checkbox if your fields have values';
+                check.error = 'Please accept the terms';
             }
         }
     }
@@ -143,6 +160,6 @@ export class ViewThree extends ViewBase {
 
 declare global {
     interface HTMLElementTagNameMap {
-        'view-three': ViewThree;
+        'view-form': ViewForm;
     }
 }
