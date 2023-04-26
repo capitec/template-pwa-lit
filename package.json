@@ -55,7 +55,7 @@
         "workbox-webpack-plugin": "^6.5.4"
     },
     "dependencies": {
-        "@capitec/omni-components": "^0.5.0",
+        "@capitec/omni-components": "^0.5.27-beta",
         "@capitec/omni-router": "^0.0.3",
         "lit": "^2.6.1"
     }
