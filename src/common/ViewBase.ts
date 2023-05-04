@@ -7,9 +7,12 @@ export class ViewBase extends LitElement {
         :host {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: stretch;
             align-items: center;
             background-color: var(--global-background-color);
+            box-sizing: border-box;
+            overflow: auto;
+            padding: 20px;
         }
 
         /** INFO BLOCK STYLES */
