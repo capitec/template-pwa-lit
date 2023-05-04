@@ -227,6 +227,10 @@ export class AppShell extends LitElement {
 			nav > omni-hyperlink {
 				height: 48px;
 			}
+
+			omni-switch > span {
+				display: none;
+			}
 		}
 
 		/* CONTENT AREA */
@@ -248,7 +252,7 @@ export class AppShell extends LitElement {
 					<omni-hyperlink href="/components" @click="${(e: MouseEvent) => this._navigate(e, '/components')}" label="Components"></omni-hyperlink>
 					<omni-hyperlink href="/form" @click="${(e: MouseEvent) => this._navigate(e, '/form')}" label="Form"></omni-hyperlink>
 				</nav>
-				<omni-switch label="Dark Mode" ?checked="${this._darkMode}" @value-change="${() => this._toggleDarkMode()}"></omni-switch>
+				<omni-switch ?checked="${this._darkMode}" @value-change="${() => this._toggleDarkMode()}"><span>Dark Mode</span></omni-switch>
 			</div>
 			<omni-router></omni-router>
 		`;
