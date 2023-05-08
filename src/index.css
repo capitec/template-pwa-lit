@@ -54,10 +54,11 @@ html {
 
 	--omni-theme-border-radius: 4px;
 	--omni-theme-border-width: 2px;
+    
 	/* COMPONENT SPECIFIC STYLES */
 	--omni-hyperlink-color: #00bfff;
 	--omni-hyperlink-color-active: #00bfff;
-	--omni-hyperlink-color-visited: #b872fa;
+    --omni-hyperlink-color-visited: #b872fa;
 }
 
 :root[dark] {

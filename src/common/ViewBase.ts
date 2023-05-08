@@ -9,7 +9,7 @@ export class ViewBase extends LitElement {
             flex-direction: column;
             justify-content: stretch;
             align-items: center;
-            background-color: var(--global-background-color);
+            background: var(--global-background-color);
             box-sizing: border-box;
             overflow: auto;
             padding: 20px;
@@ -35,6 +35,7 @@ export class ViewBase extends LitElement {
             color: var(--omni-theme-font-color);
             padding: 24px 0;
             border-bottom: 1px solid white;
+            align-self: stretch;        
         }
 
         .item:last-of-type {

@@ -9,11 +9,7 @@ export class ViewHome extends ViewBase {
     static override styles: CSSResultGroup = [
         ViewBase.styles,
         css`
-            /* @media only screen and (max-width: 859px) {
-                .wrapper {
-                    min-width: 90%;
-                }
-            } */
+
         `
     ];
 
