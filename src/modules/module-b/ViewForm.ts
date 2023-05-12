@@ -104,13 +104,16 @@ export class ViewForm extends ViewBase {
                         .value=${live(this._pinValue as number)} 
                         @input="${(e: InputEvent) => this._clearPinFieldError(e)}">
                     </omni-pin-field>
-                    <omni-radio-group class="radio-group" label="Select your account type" horizontal>
+                    <omni-radio-group class="radio-group" label="Account Type" horizontal>
                         <omni-radio label="Developer"></omni-radio>
                         <omni-radio label="Admin"></omni-radio>
                         <omni-radio label="Casual User" checked></omni-radio>
                     </omni-radio-group>
-                    <omni-check id="form-check" label="I agree all fields above are populated" @click="${(e: Event) =>
-                        this._clearTermsError(e)}"></omni-check>
+                    <omni-check 
+                        id="form-check" 
+                        label="I agree all fields above are populated" 
+                        @click="${(e: Event) => this._clearTermsError(e)}">
+                    </omni-check>
                     <omni-button label="Submit" type="primary" @click="${() => this._submitForm()}"></omni-button>
                 </div>
             </div>    
