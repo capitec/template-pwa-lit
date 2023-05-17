@@ -46,6 +46,7 @@ The following NPM scripts within `package.json` should be noted:
 
 - `serve` - Launches Webpack's dev server (Automated via `F5` debugging in VS Code 😎).
 - `build` - Bundles code and copies artifacts for production from the `src` directory to the `dist` directory.
+- `analyze` - Bundles code (see `build` command) and generates & serves a module visual analyzer.
 - `preview` - Launches a simple web server, serving the `dist` directory (Remember to `build` first! 🎗️).
 - `test` - Launches the [Playwright](#run-end-to-end-tests-with-playwright) test runner & executes all tests within `tests` directory.
 - `format` - Runs the Prettier formatter on all `.ts` files, applying format updates where necessary.
