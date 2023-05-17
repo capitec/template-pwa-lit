@@ -15,7 +15,10 @@ import packageJson from './package.json' assert { type: 'json' };
  */
 export default {
     entry: {
-        app: { import: path.resolve(process.cwd(), './src/index.ts') },
+        app: {
+            import: path.resolve(process.cwd(), './src/index.ts'),
+            filename: 'app.[contenthash].js'
+        },
     },
     output: {
         path: path.resolve(process.cwd(), 'dist'),
@@ -97,7 +100,8 @@ export default {
         splitChunks: {
             chunks: 'all',
             maxInitialRequests: Infinity,
-            minSize: 0
+            minSize: 0,
+            filename: '[name].[contenthash].js'
         }
     },
     stats: {
