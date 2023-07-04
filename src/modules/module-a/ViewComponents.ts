@@ -8,6 +8,8 @@ import factories from '../../assets/factories.svg';
 import { ViewBase } from '../../common/ViewBase';
 
 import '@capitec/omni-components/icon';
+import '@capitec/omni-components/label';
+import '@capitec/omni-components/hyperlink';
 import '@capitec/omni-components/color-field';
 import '@capitec/omni-components/select';
 

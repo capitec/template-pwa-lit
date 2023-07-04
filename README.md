@@ -2,24 +2,6 @@
 
 Progressive Web App (PWA) starter template for [Lit](https://lit.dev)-based Single-page application (SPA) development, leveraging various [Omni](https://github.com/capitec?q=omni-) libraries.
 
-### Headline Features: 🌟
-- TypeScript support.
-- Dark-mode support.
-- Integrated bundling, debugging, testing, linting & formatting support.
-- Basic SPA boilerplate with routing & PWA setup.
-
-### Key Dependencies: 🛠️
-- Tooling
-    - [VS Code](https://code.visualstudio.com) for application development.
-    - [webpack](https://webpack.js.org/) for module bundling.
-    - [Playwright](https://playwright.dev/) for end-to-end headless browser testing.
-    - [ESLint](https://eslint.org/) for static code analysis.
-    - [Prettier](https://prettier.io/) for opinionated code formatting.
-- Runtime
-    - [Omni Components](https://github.com/capitec/omni-components) for UI components.
-    - [Omni Router](https://github.com/capitec/omni-router) for client-side routing.
-    - [Lit](https://lit.dev) for SPA development.
-
 # Usage
 
 1️⃣ &nbsp; Create a new [repository from this template](https://github.com/capitec/template-pwa-lit/generate) (or fork) and clone locally:
@@ -74,19 +56,19 @@ npm run test -- tests/example.spec.ts
 npm run test -- --debug
 ```
 
-# Showcased Features
+# Features
 |     Feature    |  Availability | Description |
 |-------------------------------|-----|-----------------------------------------------------------------|
 |    Components                 | ✅  | [Omni Components](https://github.com/capitec/omni-components)   |
+|    Component Intellisense     | ✅  |                                 |
 |    Routing                    | ✅  | [Omni Router](https://github.com/capitec/omni-router)           |
-|    Component Intellisense     | ✅  | Provided for all Omni Components                                |
-|    VS Code Debugging          | ✅  | Provided via `.vscode/launch.json`                              |
-|    Tests                      | ✅  | Provided via [Playwright](https://playwright.dev/)              |
-|    Serve                      | ✅  | Provided via [webpack](https://webpack.js.org/)                 |
-|    Build                      | ✅  | Provided via [webpack](https://webpack.js.org/)                 |
-|    Build chunking             | ✅  | Provided via `/* webpackChunkName: */` compiler hints           |
-|    Preview built output       | ✅  | Provided via `http-server`                                      |
-|    Formatting                 | ✅  | Provided via [Prettier](https://prettier.io/)                   |
-|    Linting                    | ✅  | Provided via [ESLint](https://eslint.org/)                      |
+|    VS Code Debugging          | ✅  | [.vscode/launch.json](./.vscode/launch.json)                              |
+|    Tests                      | ✅  | [Playwright](https://playwright.dev/)              |
+|    Serve                      | ✅  | [webpack](https://webpack.js.org/)                 |
+|    Build                      | ✅  | [webpack](https://webpack.js.org/)                 |
+|    Build chunking             | ✅  | `/* webpackChunkName: */` compiler hints           |
+|    Preview built output       | ✅  | [http-server](https://github.com/http-party/http-server)                                      |
+|    Formatting                 | ✅  | [Prettier](https://prettier.io/)                   |
+|    Linting                    | ✅  | [ESLint](https://eslint.org/)                      |
 
 

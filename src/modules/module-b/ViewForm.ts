@@ -8,7 +8,6 @@ import { ViewBase } from '../../common/ViewBase';
 import '@capitec/omni-components/button';
 import '@capitec/omni-components/check';
 import '@capitec/omni-components/email-field';
-import '@capitec/omni-components/hyperlink';
 import '@capitec/omni-components/icon';
 import '@capitec/omni-components/label';
 import '@capitec/omni-components/pin-field';
@@ -48,19 +47,19 @@ export class ViewForm extends ViewBase {
                 width: 100%;
              }
 
-             .form-container > * {
+            .form-container > * {
                 margin-top: 10px;
                 margin-bottom: 10px;
-             }
+            }
 
-             .terms {
+            .terms {
                 margin-top: 15px;
-             }
+            }
 
-             .suffix-slot {
+            .suffix-slot {
                margin-right: 10px;
                color: var(--omni-theme-primary-color);
-             }
+            }
 
         `
     ];
