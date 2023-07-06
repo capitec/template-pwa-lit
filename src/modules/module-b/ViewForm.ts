@@ -3,7 +3,6 @@ import { EmailField } from '@capitec/omni-components/email-field';
 import { PinField } from '@capitec/omni-components/pin-field';
 import { css, CSSResultGroup, html } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
-import { live } from 'lit/directives/live.js';
 import { ViewBase } from '../../common/ViewBase';
 import '@capitec/omni-components/button';
 import '@capitec/omni-components/check';
@@ -18,7 +17,7 @@ import '@capitec/omni-components/text-field';
 export class ViewForm extends ViewBase {
     @state() private _formValid: boolean = false;
     @state() private _emailValue?: string = '';
-    @state() private _pinValue?: number;
+    @state() private _pinValue?: string = '';
 
     static override styles: CSSResultGroup = [
         ViewBase.styles,
@@ -88,7 +87,7 @@ export class ViewForm extends ViewBase {
                         id="form-email-field" 
                         label="Email" 
                         hint="Your email address" 
-                        .value="${live(this._emailValue as string)}" 
+                        .value="${this._emailValue}" 
                         @input="${(e: InputEvent) => this._clearEmailFieldError(e)}">
                         <omni-icon size="medium" slot="suffix" class="suffix-slot">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100%" height="100%">
@@ -100,7 +99,7 @@ export class ViewForm extends ViewBase {
                         id="form-pin-field" 
                         label="Pin" 
                         hint="Your pin" 
-                        .value=${live(this._pinValue as number)} 
+                        .value=${this._pinValue} 
                         @input="${(e: InputEvent) => this._clearPinFieldError(e)}">
                     </omni-pin-field>
                     <omni-radio-group class="radio-group" label="Account Type" horizontal>
