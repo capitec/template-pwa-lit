@@ -51,6 +51,6 @@
     "dependencies": {
         "@capitec/omni-components": "^0.8.1",
         "@capitec/omni-router": "^0.0.3",
-        "lit": "^2.7.3"
+        "lit": "^2.7.6"
     }
 }
